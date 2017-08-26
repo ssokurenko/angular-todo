@@ -1,0 +1,12 @@
+<form>
+  <input type="text" [(ngModel)]="newTaskTitle" name="newTaskTitle">
+  <button (click)="addTask()">Add</button>
+</form>
+<button (click)="deleteAllTasks()">Delete all</button>
+<ul>
+  <li *ngFor="let task of tasks">
+    <input type="checkbox" [checked]="task.isDone" (change)="updateTaskStatus(task.timestamp)">
+    {{ task.title }}
+    <button (click)="deleteTask(task.timestamp)">Delete</button>
+  </li>
+</ul>

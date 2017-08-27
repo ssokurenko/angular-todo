@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="card-body">
+        <h5>
+            <i class="fa fa-list-ul" aria-hidden="true"></i>
+            Todo list
+        </h5>
+        <div class="status">
+            <small *ngIf="!tasks.length">
+                Please add tasks.
+            </small>
+            <small *ngIf="tasks.length && progress!=='100%'">
+                Completed {{ completedTasks }} out of {{ tasks.length}} tasks.
+            </small>
+            <small *ngIf="progress==='100%'" class="text-primary">
+                Well done! All tasks completed.
+            </small>
+            <button *ngIf="completedTasks" type="button" class="btn btn-sm btn-light" (click)="deleteDoneTasks()">
+                Clear completed
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress}"></div>
+        </div>
+        <form class="add-new-task" (submit)="addTask()">
+            <div class="input-group">
+                <input type="text" [(ngModel)]="newTaskTitle" name="newTaskTitle" class="form-control"
+                       placeholder="Add new task" aria-label="Add new task">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="addTask()">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+        <div *ngIf="!tasks.length" class="small">
+            <p>There are not tasks here yet.</p>
+            <p>Type a task title and press 'Enter' or click the
+                <button class="btn btn-sm btn-primary">
+                    <i class="fa fa-plus"></i>
+                </button>
+                icon above.
+            </p>
+        </div>
+        <div class="task" *ngFor="let task of tasks">
+            <div class="input-group" [ngClass]="{'completed': task.isDone}">
+                <span class="input-group-addon">
+                    <input type="checkbox" [checked]="task.isDone" (change)="updateTaskStatus(task.timestamp)">
+                </span>
+                <input type="text" class="form-control" [(ngModel)]="task.title" (ngModelChange)="updateTasks()">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-light" (click)="deleteTask(task.timestamp)">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <p class="small" *ngIf="showModifyHint">
+            Click a task title to modify it.
+        </p>
+    </div>
+</div>

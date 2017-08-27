@@ -12,6 +12,11 @@ Install project module dependencies
 ```
 npm install
 ```
+## Frameworks
+
+As the main framework is used [Angular](https://angular.io/docs) powered by [Angular CLI](https://cli.angular.io/).
+
+For presentation layer is used [ngx-bootstrap v1.9.1](http://valor-software.com/ngx-bootstrap/#/).
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -32,7 +37,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.

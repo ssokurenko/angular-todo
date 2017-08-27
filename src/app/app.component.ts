@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {TodosComponent} from './todos/tasks.component';
+import {TodosComponent} from './tasks/tasks.component';
 import {TodoService} from './todo.service'
 
 @Component({

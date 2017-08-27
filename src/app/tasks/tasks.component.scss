@@ -1,0 +1,43 @@
+$spacer: 1rem;
+
+.card {
+  margin-top: $spacer;
+
+  .status {
+    display: flex;
+    height: 36px;
+    align-items: center;
+
+    &>button {
+      margin-left: $spacer;
+    }
+  }
+
+  .progress {
+    margin: $spacer 0 $spacer 0;
+
+    &-bar {
+      height: 10px;
+    }
+  }
+
+  .add-new-task {
+    margin: 0 0 2*$spacer 0;
+  }
+}
+
+.task {
+  margin: $spacer/2 0 $spacer/2 0;
+
+  .input-group-btn {
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-left: 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .input-group {
+    &.completed {
+      opacity: .2;
+    }
+  }
+}

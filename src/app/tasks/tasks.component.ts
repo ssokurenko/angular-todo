@@ -50,6 +50,7 @@ export class TodosComponent implements OnInit {
       };
       this.tasks.unshift(newTask);
       this.newTaskTitle = '';
+      this.updateProgress();
       TodoService.updateTasks(this.tasks);
     }
   }
